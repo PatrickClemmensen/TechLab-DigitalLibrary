@@ -21,19 +21,19 @@ public class LoanItemFactory {
             return new Book(title,loanDays,author);
 
         } else if(type.equalsIgnoreCase("video")){ //Checks for type: video
-            System.out.println("Title: ");
+            System.out.print("Title: ");
             String title = scanner.nextLine(); //Get title input
-            System.out.println("Loan duration: ");
+            System.out.print("Loan duration: ");
             int loanDays = scanner.nextInt(); //Get loan duration input
             scanner.nextLine();
-            System.out.println("Duration: "); //Get video duration input
+            System.out.print("Duration: "); //Get video duration input
             int duration = scanner.nextInt();
             scanner.nextLine();
 
             return new Video(title, loanDays, duration);
 
         } else if(type.equalsIgnoreCase("electronic")){ //Checks for type: electronic
-            System.out.println("Title: ");
+            System.out.print("Title: ");
             String title = scanner.nextLine(); //Get title input
             System.out.print("Loan duration: ");
             int loanDays = scanner.nextInt(); //Get loan duration
@@ -44,7 +44,7 @@ public class LoanItemFactory {
             return new Electronic(title,loanDays,modelName);
 
         } else {
-            System.out.println("Invalid input - please try again. †Valid inputs are (book/video/electronic).\nThanks in advance!");
+            System.out.println("Invalid input - please try again. † Valid inputs are (book/video/electronic).\nThanks in advance!");
         }
         return null;
     }
