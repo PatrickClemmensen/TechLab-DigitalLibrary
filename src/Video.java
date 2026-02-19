@@ -8,8 +8,7 @@ public class Video extends LoanItem {
     }
 
     public String getDescription(){
-        return "Title: " + this.getTitle() + "LoanDays: " + this.getLoanDays() +
-                "Duration" + this.duration;
+        return "Title: " + this.getTitle() + " | Movie duration (in minutes): " + this.duration + " | Loan duration: " + this.loanDays();
     }
 
     public double calculateFee(){

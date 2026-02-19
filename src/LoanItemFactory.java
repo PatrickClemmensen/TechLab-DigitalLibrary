@@ -10,12 +10,12 @@ public class LoanItemFactory {
 
 
         if(type.equalsIgnoreCase("book")){ //Checks for type: book
-            System.out.println("Title: ");
+            System.out.print("Title: ");
             String title = scanner.nextLine(); //Get title input
-            System.out.print(" | Loan duration: ");
+            System.out.print("Loan duration: ");
             int loanDays = scanner.nextInt(); //Get loan duration input
             scanner.nextLine();
-            System.out.print(" | Author: "); //Get author input
+            System.out.print("Author: "); //Get author input
             String author = scanner.nextLine();
 
             return new Book(title,loanDays,author);
@@ -23,10 +23,10 @@ public class LoanItemFactory {
         } else if(type.equalsIgnoreCase("video")){ //Checks for type: video
             System.out.println("Title: ");
             String title = scanner.nextLine(); //Get title input
-            System.out.println(" | Loan duration: ");
+            System.out.println("Loan duration: ");
             int loanDays = scanner.nextInt(); //Get loan duration input
             scanner.nextLine();
-            System.out.println(" | Duration: "); //Get video duration input
+            System.out.println("Duration: "); //Get video duration input
             int duration = scanner.nextInt();
             scanner.nextLine();
 
@@ -35,10 +35,10 @@ public class LoanItemFactory {
         } else if(type.equalsIgnoreCase("electronic")){ //Checks for type: electronic
             System.out.println("Title: ");
             String title = scanner.nextLine(); //Get title input
-            System.out.print(" | Loan duration: ");
+            System.out.print("Loan duration: ");
             int loanDays = scanner.nextInt(); //Get loan duration
             scanner.nextLine();
-            System.out.print(" | Model: "); //Get model input
+            System.out.print("Model: "); //Get model input
             String modelName = scanner.nextLine();
 
             return new Electronic(title,loanDays,modelName);
