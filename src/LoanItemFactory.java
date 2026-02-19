@@ -19,8 +19,18 @@ public class LoanItemFactory {
             String author = scanner.nextLine();
 
             return new Book(title,loanDays,author);
+
         }else if(type.equalsIgnoreCase("video")){
-            System.out.println("It almost worked");
+            System.out.println("Title: ");
+            String title = scanner.nextLine();
+            System.out.println("Loan duration: ");
+            int loanDays = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Duration: ");
+            int duration = scanner.nextInt();
+            scanner.nextLine();
+
+            return new Video(title, loanDays, duration);
         }else{
             System.out.println("Invalid input");
         }

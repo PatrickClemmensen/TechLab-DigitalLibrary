@@ -7,8 +7,15 @@ public abstract class LoanItem {
         this.loanDays = loanDays;
     }
 
-    public String getTitle(){return this.title;}
-    public int getLoanDays(){return this.loanDays;}
+    public String getTitle(){
+        return this.title;
+    }
+
+    public int getLoanDays(){
+        return this.loanDays;
+    }
+
     public abstract double calculateFee();
+
     public abstract String getDescription();
 }
