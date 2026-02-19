@@ -11,7 +11,7 @@ public class Book extends LoanItem {
     }
 
     public String getDescription(){
-        return "Title: " + this.getTitle() + " | Author: " + this.author + " | Loan duration: " + this.loanDays();
+        return "Title: " + this.getTitle() + " | Author: " + this.author + " | Loan duration: " + this.getLoanDays();
     }
 
 

@@ -11,7 +11,7 @@ public class Electronic extends LoanItem {
     }
 
     public String getDescription(){
-        return "Title: " + this.getTitle() + " | Model: "+ this.modelName + " | Loan duration: " + this.loanDays();
+        return "Title: " + this.getTitle() + " | Model: "+ this.modelName + " | Loan duration: " + this.getLoanDays();
     }
 
 
