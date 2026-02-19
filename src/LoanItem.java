@@ -15,7 +15,7 @@ public abstract class LoanItem {
         return this.loanDays;
     }
 
-    public abstract double calculateFee();
+    public abstract double getDailyLateFee();
 
     public abstract String getDescription();
 }

@@ -1,18 +1,18 @@
-public class Electronic extends LoanItem {
-    private String modelName;
+public abstract class Electronic extends LoanItem {
+    private double baseValue;
 
-    public Electronic(String title, int loanDays, String modelName){
+    public Electronic(String title, int loanDays, double baseValue){
         super(title, loanDays);
-        this.modelName = modelName;
+        this.baseValue = baseValue;
     }
 
-    public double calculateFee(){
-        return 100;
+    public double getBaseValue(){return this.baseValue;}
+    @Override
+    public double getDailyLateFee(){
+        return baseValue*0.08;
     }
 
-    public String getDescription(){
-        return "Title: " + this.getTitle() + " | Model: "+ this.modelName + " | Loan duration: " + this.getLoanDays();
-    }
+    public abstract String getDescription();
 
 
 }

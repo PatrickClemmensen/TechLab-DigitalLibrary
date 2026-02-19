@@ -1,6 +1,6 @@
 public class Video extends LoanItem {
-
     private int duration;
+    private final static double dailyLateFee = 2.5;
 
     public Video(String title, int loanDays, int duration){
         super(title, loanDays);
@@ -8,10 +8,12 @@ public class Video extends LoanItem {
     }
 
     public String getDescription(){
-        return "Title: " + this.getTitle() + " | Movie duration (in minutes): " + this.duration + " | Loan duration: " + this.getLoanDays();
+        return "Title: " + this.getTitle()
+                + " | Movie duration (in minutes): " + this.duration
+                + " | Loan duration: " + this.getLoanDays();
     }
 
-    public double calculateFee(){
-        return 500;
+    public double getDailyLateFee(){
+        return dailyLateFee;
     }
 }

@@ -2,38 +2,72 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class UserInterface {
-    private ArrayList<LoanItem> loanItems;
+    private LoanItemFactory factory;
     private Scanner scanner;
 
     public UserInterface(Scanner scanner){
-        this.loanItems = new ArrayList<>();
+        this.factory = new LoanItemFactory();
         this.scanner = scanner;
     }
 
-    public void collectItems(){
-        LoanItemFactory loanItemFactory = new LoanItemFactory();
-        System.out.print("How many items would you like to loan? Please enter a number: ");
-        int itemsToLoan = scanner.nextInt(); //receive loan count
-        scanner.nextLine(); // clears buffer
+    public ArrayList<LoanItem> collectItems(){
+        System.out.println("Welcome to the TechLab Loan System!");
+        System.out.println("------------------------------------------");
 
-        while(itemsToLoan > 0){
+        int count = promptInt("How many items would you like to borrow? ");
 
-            System.out.print("Which type of item would you like to loan? Pick a book/video/electronic by typing it: ");
+        ArrayList<LoanItem> loanItems = new ArrayList<>();
 
-            String type = scanner.nextLine();
-            LoanItem itemToLoan = loanItemFactory.create(type, scanner);
+        for(int i = 0; i < count; i++){
+            System.out.println("Item #"+(i+1));
+            ItemType type = promptItemType();
 
-            if(itemToLoan != null){
-                loanItems.add(itemToLoan);
-                itemsToLoan--;
-            }
+            System.out.print("Title: ");
+            String title = scanner.nextLine();
+
+            int loanDays = promptInt("Loan duration (days): ");
+
+            loanItems.add(factory.create(type, title, loanDays, scanner));
         }
+        return loanItems;
     }
 
-    public void displaySummary(){
-        for(LoanItem i : loanItems){
+    public void displaySummary(ArrayList<LoanItem> items){
+        for(LoanItem i : items){
             System.out.println(i.getDescription());
         }
     }
 
+    private int promptInt(String prompt){
+        while(true){
+            System.out.print(prompt);
+            try {
+                int count = Integer.valueOf(scanner.nextLine());
+                if(count > 0){return count;}
+                System.out.println("Enter a number higher than 0");
+            }catch(NumberFormatException e){
+                System.out.println("Invalid input - enter whole number");
+            }
+        }
+    }
+
+    private ItemType promptItemType(){
+        while(true){
+            System.out.print("Choose one of the following types ");
+            ItemType[] types = ItemType.values();
+            for(int i = 0; i < types.length; i++){
+                System.out.print(types[i]);
+                if(i < types.length-1){
+                    System.out.print(", ");
+                }
+            }
+            System.out.print(": ");
+
+            try{
+                return ItemType.valueOf(scanner.nextLine().toLowerCase());
+            }catch(IllegalArgumentException e){
+                System.out.println("Invalid type");
+            }
+        }
+    }
 }

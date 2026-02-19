@@ -6,46 +6,47 @@ public class LoanItemFactory {
     public LoanItemFactory(){
     }
 
-    public LoanItem create(String type, Scanner scanner){
+    public LoanItem create(ItemType type, String title, int loanDays, Scanner scanner){
 
+        switch(type){
+            case book:
+                System.out.print("Author: ");
+                String author = scanner.nextLine();
+                return new Book(title, loanDays, author);
 
-        if(type.equalsIgnoreCase("book")){ //Checks for type: book
-            System.out.print("Title: ");
-            String title = scanner.nextLine(); //Get title input
-            System.out.print("Loan duration: ");
-            int loanDays = scanner.nextInt(); //Get loan duration input
-            scanner.nextLine();
-            System.out.print("Author: "); //Get author input
-            String author = scanner.nextLine();
+            case video:
+                System.out.print("Duration (minutes): ");
+                int duration = Integer.parseInt(scanner.nextLine().trim());
+                return new Video(title, loanDays, duration);
 
-            return new Book(title,loanDays,author);
+            case raspberry_pi:
+                String model = promptOptions(scanner, "Model ", "4B", "5");
 
-        } else if(type.equalsIgnoreCase("video")){ //Checks for type: video
-            System.out.print("Title: ");
-            String title = scanner.nextLine(); //Get title input
-            System.out.print("Loan duration: ");
-            int loanDays = scanner.nextInt(); //Get loan duration input
-            scanner.nextLine();
-            System.out.print("Duration: "); //Get video duration input
-            int duration = scanner.nextInt();
-            scanner.nextLine();
+                System.out.print("Base value: ");
+                double piValue = Double.parseDouble(scanner.nextLine().trim());
+                return new RaspberryPi(title, loanDays, piValue, model);
 
-            return new Video(title, loanDays, duration);
+            case arduino_kit:
+                String kitLevel = promptOptions(scanner, "Kit level ", "Beginner", "Advanced");
+                System.out.print("Base value: ");
+                double kitValue = Double.parseDouble(scanner.nextLine().trim());
+                return new ArduinoKit(title, loanDays, kitLevel, kitValue);
 
-        } else if(type.equalsIgnoreCase("electronic")){ //Checks for type: electronic
-            System.out.print("Title: ");
-            String title = scanner.nextLine(); //Get title input
-            System.out.print("Loan duration: ");
-            int loanDays = scanner.nextInt(); //Get loan duration
-            scanner.nextLine();
-            System.out.print("Model: "); //Get model input
-            String modelName = scanner.nextLine();
-
-            return new Electronic(title,loanDays,modelName);
-
-        } else {
-            System.out.println("Invalid input - please try again. † Valid inputs are (book/video/electronic).\nThanks in advance!");
+            default:
+                throw new IllegalArgumentException("Unhandled item type: " + type);
         }
-        return null;
+    }
+    private String promptOptions(Scanner scanner, String prompt, String... validOptions) {
+        while (true) {
+            System.out.print(prompt+"("+String.join(", ", validOptions)+"): ");
+            String input = scanner.nextLine().trim();
+            for (String option : validOptions) {
+                if (input.equalsIgnoreCase(option)) {
+                    return option;
+                }
+            }
+            System.out.print("Invalid input — valid options are: ");
+            System.out.println(String.join(", ", validOptions));
+        }
     }
 }
