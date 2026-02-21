@@ -11,10 +11,7 @@ public class ArduinoKit extends Electronic {
     }
 
     @Override
-    public String getDescription() {
-        return "Title: " + getTitle()
-                + " | Kit level: " + this.kitLevel
-                + " | Loan duration: " + getLoanDays()
-                + " | Base value: " + getBaseValue();
+    protected String getDetails(){
+        return " | Kit level: " + kitLevel + super.getDetails();
     }
 }

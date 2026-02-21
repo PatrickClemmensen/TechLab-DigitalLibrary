@@ -16,6 +16,9 @@ public abstract class LoanItem {
     }
 
     public abstract double getDailyLateFee();
+    protected abstract String getDetails();
 
-    public abstract String getDescription();
+    public String getDescription(){
+        return "Title: " + getTitle() + getDetails() + " | Loan duration: " + getLoanDays()+" | Daily late fee: "+getDailyLateFee()+" kr.";
+    }
 }

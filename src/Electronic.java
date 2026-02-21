@@ -7,12 +7,13 @@ public abstract class Electronic extends LoanItem {
     }
 
     public double getBaseValue(){return this.baseValue;}
-    @Override
     public double getDailyLateFee(){
         return baseValue*0.08;
     }
-
-    public abstract String getDescription();
+    @Override
+    protected String getDetails(){
+        return " | Base value: " + getBaseValue();
+    }
 
 
 }

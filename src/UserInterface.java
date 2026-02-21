@@ -5,8 +5,8 @@ public class UserInterface {
     private LoanItemFactory factory;
     private Scanner scanner;
 
-    public UserInterface(Scanner scanner){
-        this.factory = new LoanItemFactory();
+    public UserInterface(Scanner scanner, LoanItemFactory factory){
+        this.factory = factory;
         this.scanner = scanner;
     }
 
@@ -36,6 +36,8 @@ public class UserInterface {
         for(LoanItem i : items){
             System.out.println(i.getDescription());
         }
+        System.out.println("Summary: ");
+        System.out.println("You borrowed "+ items.size() + " items today.");
     }
 
     private int promptInt(String prompt){
@@ -66,7 +68,7 @@ public class UserInterface {
             try{
                 return ItemType.valueOf(scanner.nextLine().toLowerCase());
             }catch(IllegalArgumentException e){
-                System.out.println("Invalid type");
+                System.out.println("Invalid type ");
             }
         }
     }

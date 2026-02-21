@@ -10,10 +10,7 @@ public class RaspberryPi extends Electronic {
     }
 
     @Override
-    public String getDescription() {
-        return "Title: " + getTitle()
-                + " | Model: " + model
-                + " | Loan duration: " + getLoanDays()
-                + " | Base value: " + getBaseValue();
+    protected String getDetails(){
+        return " | Model: " + model + super.getDetails();
     }
 }

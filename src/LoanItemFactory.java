@@ -27,7 +27,7 @@ public class LoanItemFactory {
                 return new RaspberryPi(title, loanDays, piValue, model);
 
             case arduino_kit:
-                String kitLevel = promptOptions(scanner, "Kit level ", "Beginner", "Advanced");
+                String kitLevel = promptOptions(scanner, "Kit level ", "Beginner", "Advanced", "Ultra");
                 System.out.print("Base value: ");
                 double kitValue = Double.parseDouble(scanner.nextLine().trim());
                 return new ArduinoKit(title, loanDays, kitLevel, kitValue);

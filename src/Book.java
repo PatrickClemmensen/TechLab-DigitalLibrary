@@ -11,10 +11,9 @@ public class Book extends LoanItem {
         return lateFee;
     }
 
-    public String getDescription(){
-        return "Title: " + this.getTitle()
-                + " | Author: " + this.author
-                + " | Loan duration: " + this.getLoanDays();
+    @Override
+    protected String getDetails(){
+        return " | Author: " + author;
     }
 
 
