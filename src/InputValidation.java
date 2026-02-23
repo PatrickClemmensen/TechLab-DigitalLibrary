@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class InputValidation {
 
-    public int promptInt(Scanner scanner, String prompt){
+    public static int promptInt(Scanner scanner, String prompt){
         while(true){
             System.out.print(prompt);
             try {
@@ -15,7 +15,7 @@ public class InputValidation {
         }
     }
 
-    public double promptDouble(Scanner scanner, String prompt){
+    public static double promptDouble(Scanner scanner, String prompt){
         while(true){
             System.out.print(prompt);
             try {
@@ -28,7 +28,7 @@ public class InputValidation {
         }
     }
 
-    public String promptOptions(Scanner scanner, String prompt, String... validOptions) {
+    public static String promptOptions(Scanner scanner, String prompt, String... validOptions) {
         while (true) {
             System.out.print(prompt+"("+String.join(", ", validOptions)+"): ");
             String input = scanner.nextLine().trim();
@@ -42,6 +42,25 @@ public class InputValidation {
         }
     }
 
+    public static ItemType promptItemType(Scanner scanner){
+        while(true){
+            System.out.print("Choose one of the following types ");
+            ItemType[] types = ItemType.values();
+            for(int i = 0; i < types.length; i++){
+                System.out.print(types[i]);
+                if(i < types.length-1){
+                    System.out.print(", ");
+                }
+            }
+            System.out.print(": ");
+
+            try{
+                return ItemType.valueOf(scanner.nextLine().toLowerCase());
+            }catch(IllegalArgumentException e){
+                System.out.println("Invalid type ");
+            }
+        }
+    }
 }
 
 

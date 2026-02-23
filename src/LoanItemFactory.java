@@ -5,8 +5,7 @@ public class LoanItemFactory {
 
     public LoanItemFactory(){
     }
-
-    InputValidation validation = new InputValidation();
+    
 
     public LoanItem create(ItemType type, String title, int loanDays, Scanner scanner){
 
@@ -17,17 +16,17 @@ public class LoanItemFactory {
                 return new Book(title, loanDays, author);
 
             case video:
-                int duration = validation.promptInt(scanner, "Duration (minutes): ");
+                int duration = InputValidation.promptInt(scanner, "Duration (minutes): ");
                 return new Video(title, loanDays, duration);
 
             case raspberry_pi:
-                String model = validation.promptOptions(scanner, "Model ", "4B", "5");
-                double piValue = validation.promptDouble(scanner, "Base value: ");
+                String model = InputValidation.promptOptions(scanner, "Model ", "4B", "5");
+                double piValue = InputValidation.promptDouble(scanner, "Base value: ");
                 return new RaspberryPi(title, loanDays, piValue, model);
 
             case arduino_kit:
-                String kitLevel = validation.promptOptions(scanner, "Kit level ", "Beginner", "Advanced", "Ultra");
-                double kitValue = validation.promptDouble(scanner, "Base value: ");
+                String kitLevel = InputValidation.promptOptions(scanner, "Kit level ", "Beginner", "Advanced", "Ultra");
+                double kitValue = InputValidation.promptDouble(scanner, "Base value: ");
                 return new ArduinoKit(title, loanDays, kitLevel, kitValue);
 
             default:
