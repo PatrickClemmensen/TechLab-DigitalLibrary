@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class UserInterface {
+public class    UserInterface {
     private LoanItemFactory factory;
     private Scanner scanner;
 
@@ -10,11 +10,13 @@ public class UserInterface {
         this.scanner = scanner;
     }
 
+    InputValidation validation = new InputValidation();
+
     public ArrayList<LoanItem> collectItems(){
         System.out.println("Welcome to the TechLab Loan System!");
         System.out.println("------------------------------------------");
 
-        int count = promptInt("How many items would you like to borrow? ");
+        int count = validation.promptInt(scanner, "How many items would you like to borrow? ");
 
         ArrayList<LoanItem> loanItems = new ArrayList<>();
 
@@ -25,7 +27,7 @@ public class UserInterface {
             System.out.print("Title: ");
             String title = scanner.nextLine();
 
-            int loanDays = promptInt("Loan duration (days): ");
+            int loanDays = validation.promptInt(scanner, "Loan duration (days): ");
 
             loanItems.add(factory.create(type, title, loanDays, scanner));
         }
@@ -38,19 +40,6 @@ public class UserInterface {
         }
         System.out.println("Summary: ");
         System.out.println("You borrowed "+ items.size() + " items today.");
-    }
-
-    private int promptInt(String prompt){
-        while(true){
-            System.out.print(prompt);
-            try {
-                int count = Integer.valueOf(scanner.nextLine());
-                if(count > 0){return count;}
-                System.out.println("Enter a number higher than 0");
-            }catch(NumberFormatException e){
-                System.out.println("Invalid input - enter whole number");
-            }
-        }
     }
 
     private ItemType promptItemType(){
