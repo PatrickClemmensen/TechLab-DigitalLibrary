@@ -10,7 +10,7 @@ public class InputValidation {
                 if(count > 0){return count;}
                 System.out.println("Enter a number higher than 0");
             }catch(NumberFormatException e){
-                System.out.println("Invalid input - enter whole number");
+                System.out.println("Invalid input - enter whole number ");
             }
         }
     }

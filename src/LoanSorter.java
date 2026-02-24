@@ -7,10 +7,6 @@ public class LoanSorter {
         int n = items.size();
         boolean swapped; //swapped boolean added to initiate early break in case of no swaps to reduce unnecessary iterations
 
-        System.out.println();
-        System.out.println("Here's the list - sorted by shortest loan duration - for your convenience: ");
-        System.out.println();
-
         for (int i = 0; i < n - 1; i++) {
             swapped = false;
 

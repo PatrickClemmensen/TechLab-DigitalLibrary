@@ -12,6 +12,6 @@ public class ArduinoKit extends Electronic {
 
     @Override
     protected String getDetails(){
-        return " | Kit level: " + kitLevel + super.getDetails();
+        return " | Kit level: " + getKitLevel() + super.getDetails();
     }
 }

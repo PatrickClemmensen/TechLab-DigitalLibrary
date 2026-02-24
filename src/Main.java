@@ -9,7 +9,7 @@ public class Main {
         ArrayList<LoanItem> items = ui.collectItems();
         ui.displaySummary(items);
         LoanSorter.sort(items);
-        ui.displayFinalSummary(items);
+        ui.displaySummary(items);
 
 
 

@@ -1,6 +1,6 @@
 public class Book extends LoanItem {
     private String author;
-    private static final double lateFee = 1.5;
+    private static final double dailyLateFee = 1.5;
 
     public Book(String title, int loanDays, String author){
         super(title, loanDays);
@@ -8,13 +8,13 @@ public class Book extends LoanItem {
     }
 
     public double getDailyLateFee(){
-        return lateFee;
+        return dailyLateFee;
     }
+    public String getAuthor(){return this.author;}
 
     @Override
     protected String getDetails(){
-        return " | Author: " + author;
+        return " | Author: " + getAuthor();
     }
-
 
 }

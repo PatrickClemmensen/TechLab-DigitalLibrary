@@ -49,9 +49,7 @@ public class    UserInterface {
             System.out.println(i.getDescription());
         }
         System.out.println();
-        System.out.println("Don't forget to return your items within the time limit to avoid a late fee charge.\nThank you for using the TechLab Loan System and enjoy your borrowed items! (づ ◕‿◕ )づ\n\nAlso... we have ties with the mafia, in case you forget to pay your late fee charge... ᕦ(▀̿ ̿ -▀̿ ̿ )つ/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿\n... Sleeping with the fishes ain't as fun as it sounds... (－_－) zzZ");
+        //System.out.println("Don't forget to return your items within the time limit to avoid a late fee charge.\nThank you for using the TechLab Loan System and enjoy your borrowed items! (づ ◕‿◕ )づ\n\nAlso... we have ties with the mafia, in case you forget to pay your late fee charge... ᕦ(▀̿ ̿ -▀̿ ̿ )つ/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿\n... Sleeping with the fishes ain't as fun as it sounds... (－_－) zzZ");
 
     }
-
-
 }

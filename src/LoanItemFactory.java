@@ -8,7 +8,6 @@ public class LoanItemFactory {
     
 
     public LoanItem create(ItemType type, String title, int loanDays, Scanner scanner){
-
         switch(type){
             case book:
                 System.out.print("Author: ");
@@ -28,7 +27,7 @@ public class LoanItemFactory {
                 String kitLevel = InputValidation.promptOptions(scanner, "Kit level ", "Beginner", "Advanced", "Ultra");
                 double kitValue = InputValidation.promptDouble(scanner, "Base value: ");
                 return new ArduinoKit(title, loanDays, kitLevel, kitValue);
-
+            
             default:
                 throw new IllegalArgumentException("Unhandled item type: " + type);
         }
