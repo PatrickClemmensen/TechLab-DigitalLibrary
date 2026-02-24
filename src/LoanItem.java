@@ -15,6 +15,10 @@ public abstract class LoanItem {
         return this.loanDays;
     }
 
+    public double calculateFee(int daysOverdue){
+        return (getDailyLateFee()*daysOverdue);
+    }
+
     public abstract double getDailyLateFee();
     protected abstract String getDetails();
 
