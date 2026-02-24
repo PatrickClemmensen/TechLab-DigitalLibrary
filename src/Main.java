@@ -8,6 +8,9 @@ public class Main {
         UserInterface ui = new UserInterface(scanner, new LoanItemFactory());
         ArrayList<LoanItem> items = ui.collectItems();
         ui.displaySummary(items);
+        LoanSorter.sort(items);
+        ui.displayFinalSummary(items);
+
 
 
     }
